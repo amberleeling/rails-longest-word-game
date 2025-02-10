@@ -1,0 +1,17 @@
+<h1>New game</h1>
+
+<div style="display: flex; gap: 5px; ">
+  <% @letters.each do |letter| %>
+    <div style="padding: 12px 20px; background: #3498dc; color: white;"><%= letter %></div>
+  <% end %>
+</div>
+
+
+<form action="/score" method="post" data-turbo="false">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+
+  <input type="text" name="answer">
+  <input type="submit" value="submit!">
+
+</form>
